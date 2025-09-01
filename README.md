@@ -1,4 +1,4 @@
-# E-commerce ETL Pipeline with Airflow, Snowflake, and Terraform
+# E-commerce ETL Pipeline with Airflow, Snowflake and Terraform
 
 ##  Project Overview
 This project is an end-to-end **ETL pipeline** designed for **e-commerce transaction data**.  
@@ -12,25 +12,34 @@ The workflow:
 
 This pipeline simulates a real-world scenario for handling **dirty retail datasets**, applying best practices in **data transformation**, **cloud storage**, and **data warehousing**.
 
----
 
-## 🗂 Project Structure
+
+## Project Structure
+
+```
 your-snowflake-project/
-├── airflow/ # Airflow DAGs, logs, plugins
-├── assets/ # Datasets (Original, Transformed, Split)
-│ └── datasets/
-│ ├── Original_file/ # Raw CSVs
-│ ├── Transformed_full/ # Cleaned, standardized CSV
-│ └── Transformed_tables/ # Split datasets by table
-├── python_scripts/ # ETL scripts for cleaning and transformations
-├── terraform/ # Infrastructure as Code
-├── docker-compose.yaml # Docker setup for Airflow environment
-├── .env.example # Example environment variables template (safe to commit)
-├── .env # Actual environment variables (gitignored)
-└── Makefile # Shortcuts for managing containers
+├── airflow/                   -> Airflow DAGs, logs, plugins
+│ ├── dags/                    -> DAGs for ETL pipeline
+│ ├── logs/                    -> Airflow logs 
+│ └── plugins/                 
+│                              
+├── assets/                    
+│ └── datasets/                
+│ ├── original_file/           -> Raw CSVs
+│ ├── transformed_file/        -> Cleaned CSVs 
+│ └── transformed_tables/      -> split tables
+│
+├── docker-compose.yaml        -> Airflow & Postgres
+├── Makefile                   ->  Docker CLI shortcuts
+├── python_scripts/            -> Python scripts for ETL tasks
+├── terraform/                 -> Terraform scripts 
+├── .env
+├── .env.example               -> env vars template
+├── .gitignore 
+└── README.md 
 
+```
 
----
 
 ##  Tech Stack
 - **Python** (Pandas, Boto3, Snowflake Connector)  
@@ -49,13 +58,8 @@ git clone https://github.com/YOUR_USERNAME/ecommerce-etl-pipeline-airflow-snowfl
 cd ecommerce-etl-pipeline-airflow-snowflake
 ```
 
-##  Getting Started
-### 1. Clone the repository
-```bash
-git clone https://github.com/YOUR_USERNAME/ecommerce-etl-pipeline-airflow-snowflake.git
-cd ecommerce-etl-pipeline-airflow-snowflake
-```
-2. Set up environment variables
+
+### 2. Set up environment variables
 
 Copy .env.example to .env and fill in your credentials:
 
